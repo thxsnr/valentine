@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="step1" class="screen active" onclick="nextStep(2)">
+        <div class="content">
+            <p id="text1">จ๊ะะเอ๋... คนสวยยย</p>
+            <span id="hint1" class="hint">กดตรงนี้</span>
+        </div>
+    </div>
+
+    <div id="step2" class="screen" onclick="nextStep(3)">
+        <div class="content">
+            <p id="text2">Happy Valentine Day Naaa</p>
+            <span id="hint2" class="hint">กดตรงนี้</span>
+        </div>
+    </div>
+
+    <div id="step3" class="screen">
+        <div class="polaroid-wrapper">
+            <div class="polaroid-card" id="polaroid" onclick="revealPhoto()">
+                <img src="pic.jpg" alt="รูปคู่" id="main-photo">
+                <div class="polaroid-text">กดตรงนี้</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="step4" class="screen">
+        <div class="card">
+            <div class="card-mes">
+                <h2 class="main-title">มีอะไรจะบอกกกกก...</h2>
+                <div class="message-box">
+                    <p id="text3"></p>
+                </div>
+            </div>
+
+            <button id="mainBtn" class="btn" onclick="handleMainBtn()">เริ่ม</button>
+        </div>
+        <div class="audio-container">
+            <audio id="bgMusic" controls>
+                <source src="อยๆ กมาปรากฏตวในหวใจ - Pijika [Official MV].mp4" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

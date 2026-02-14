@@ -1,0 +1,227 @@
+body {
+    margin: 0; background-color: #fce4ec;
+    font-family: 'K2D', sans-serif;
+    overflow: hidden;
+    height: 100vh; display: flex; justify-content: center; align-items: center;
+}
+
+.screen {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease;
+    background: #fff0f3;
+}
+.screen.active { display: flex; text-align: center; align-items: center; }
+/*หน้าแรก กับ สอง*/
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content p {
+    font-size: 1.5rem;
+    margin-bottom: 90px;
+}
+.hint {
+    color: #ff8fa3;
+    border-bottom: 1px dashed;
+    opacity: 0;
+    transition: 0.5s;
+    font-size: 1rem;
+    margin-top: auto; 
+}
+.hint.show {
+    opacity: 1;
+}
+#text1{
+    font-size: 3rem;
+    font-weight: 400;
+}
+#text2{
+    font-size: 4rem;
+    font-weight: 400;
+}
+/*หน้าสาม*/
+.polaroid-wrapper {/*กรอบ*/
+    perspective: 1000px;
+    position: relative;
+    z-index: 5;
+
+}
+.polaroid-card {
+    background: white;
+    padding: 15px 15px 20px 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    width: 90%;
+    max-width: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+#main-photo {
+    width: 100% !important;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+.polaroid-card img {
+    opacity: 0.1;
+    width: 250px;
+    height: auto;
+    transition: filter 0.8s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.polaroid-text {
+    font-family: 'K2D', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    color: #ff8fa3;
+    font-size: 0.75rem;
+    font-weight: 300;
+}
+.card {
+    position: relative;
+    padding-bottom: 60px;
+    background: white;
+    width: 500px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.message-box {/*กล่องข้อความล่าง*/
+    position: relative;
+    z-index: 5;
+    --webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+    min-height: 50px;
+    margin-top: -15px;
+    padding-top: -15px;
+    padding-bottom: 45px;
+    display: flex; align-items: center; justify-content: center;
+}
+.card-mes{
+    text-align: left;
+    padding: 10px 20px 10px 30px;
+}
+.audio-container {
+    margin: 20px 0;
+    width: 100%;
+}
+.main-title{
+    background-color: white;
+    position: relative;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #f85892;
+    z-index: 10;
+}
+#text3 {
+    white-space: pre-line;
+    line-height: 2;
+    width: 100%;
+    padding: 0 5px; 
+    font-size: 0.9rem;
+    color: #5d4037d9;
+    margin: 0;
+}
+#mainBtn {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    padding: 8px 20px;
+    margin:0;
+}
+.btn {
+    background: #df739a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2)
+}
+.btn:hover { transform: scale(1.05); background: #ad1457; }
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.heart-bg {
+    position: absolute;
+    color: #ffb3c1;
+    pointer-events: none;
+    animation: float 6s linear infinite;
+}
+@media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .card, .polaroid-card {
+        width: 85% !important;
+        padding: 15px !important;
+        margin: 10px auto;
+    }
+
+    .card-mes{
+        padding: 10px 20px 10px 15px;
+    }
+    #text1 { font-size: 2rem !important; }
+    #text2 { font-size: 2.5rem !important; }
+    .polaroid-card img {
+        width: 100% !important;
+        height: auto;
+    }
+    .polaroid-text {
+        font-size: 0.9rem !important;
+    }
+
+    .main-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    #text3 {
+        font-size: 0.85rem !important;
+        line-height: 1.5;
+        padding-top: 20px;
+        max-height: 35vh; 
+        overflow-y: auto;
+        display: block;
+    }
+
+    #mainBtn {
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        padding: 5px 10px !important;
+        font-size: 0.7rem !important;
+    }
+
+    audio {
+        width: 100%;
+        max-width: 250px;
+        height: 30px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .card, .polaroid-card {
+        width: 70% !important;
+    }
+    #text2 { font-size: 3rem !important; }
+}
